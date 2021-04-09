@@ -1,0 +1,13 @@
+.c-button {
+  background-color: $primaryColor;
+  color: $white;
+  padding: ($padding/1.2) ($padding * 2);
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  font-weight: 600;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $primaryColorDarker;
+  }
+}

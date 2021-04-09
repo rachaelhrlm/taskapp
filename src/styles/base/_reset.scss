@@ -6,6 +6,8 @@
 
 html,
 body,
+button,
+input,
 div,
 span,
 object,
@@ -58,12 +60,19 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
+  box-shadow: none;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   text-size-adjust: none;
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+  :focus:not(:-moz-focusring) {
+    outline: none;
+  }
 }
 
 footer,

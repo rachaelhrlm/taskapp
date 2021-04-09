@@ -1,4 +1,6 @@
 import React, { ChangeEvent, FC, useState } from "react";
+import Button from "./Button";
+import Input from "./Input";
 interface AddTaskProps {
   addTask: (task: string) => void;
 }
@@ -17,8 +19,8 @@ const AddTask: FC<AddTaskProps> = ({ addTask }: AddTaskProps) => {
 
   return (
     <div>
-      <input value={task} onChange={onChange} type="text" name="task" placeholder="Input task title" />
-      <button onClick={onClick}>Add note</button>
+      <Input value={task} onChange={onChange} type="text" name="task" placeholder="Input task title" />
+      <Button onClick={onClick} text="Add task" />
     </div>
   );
 };
