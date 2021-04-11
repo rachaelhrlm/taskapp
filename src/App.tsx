@@ -3,14 +3,19 @@ import AddTask from "./components/AddTask";
 import { TasksState } from "./state/task/taskReducer";
 import { useDispatch, useSelector } from "react-redux";
 import "./styles/main.scss";
-import { addTask } from "./state/task/taskActions";
+import { addTask, completeTask } from "./state/task/taskActions";
+import { TasksContainer } from "./components";
+import { Task } from "./state/types";
 
 const App: FC = () => {
   const tasks = useSelector<TasksState, TasksState["tasks"]>(state => state.tasks);
   const dispatch = useDispatch();
 
-  const onAddTask = (tasks: string) => {
+  const onAddTask = (tasks: Task) => {
     dispatch(addTask(tasks));
+  };
+  const onCompleteTask = (tasks: Task) => {
+    dispatch(completeTask(tasks));
   };
 
   return (
@@ -19,9 +24,7 @@ const App: FC = () => {
       <div>
         <hr />
         <ul>
-          {tasks.map((task: string) => (
-            <li key={task}>{task}</li>
-          ))}
+          <TasksContainer tasks={tasks} completeTask={onCompleteTask} />
         </ul>
       </div>
     </div>

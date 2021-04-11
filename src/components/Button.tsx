@@ -1,15 +1,15 @@
-import React, { FC, ReactNode } from "react";
+import { Form, Button as AntButton, ButtonProps as AntButtonProps } from "antd";
+import React, { FC } from "react";
 
-interface ButtonProps {
-  text: ReactNode;
-  onClick?: () => void;
+interface ButtonProps extends AntButtonProps {
+  text: string;
 }
 
-const Button: FC<ButtonProps> = ({ text, onClick }: ButtonProps) => {
+const Button: FC<ButtonProps> = ({ text, ...props }: ButtonProps) => {
   return (
-    <button className="c-button" onClick={onClick}>
-      {text}
-    </button>
+    <Form.Item>
+      <AntButton {...props}>{text}</AntButton>
+    </Form.Item>
   );
 };
 

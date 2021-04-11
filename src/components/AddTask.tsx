@@ -1,27 +1,31 @@
 import React, { ChangeEvent, FC, useState } from "react";
-import Button from "./Button";
-import Input from "./Input";
+import { Button, Input } from "./";
+import { PlusOutlined } from "@ant-design/icons";
+import { Form } from "antd";
+import { Task } from "../state/types";
 interface AddTaskProps {
-  addTask: (task: string) => void;
+  addTask: (task: Task) => void;
 }
 
 const AddTask: FC<AddTaskProps> = ({ addTask }: AddTaskProps) => {
-  const [task, setTask] = useState<string>("");
+  const [task, setTask] = useState<Task | null>(null);
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setTask(event.target.value);
+    setTask({ id: new Date().getTime(), title: event.target.value, completed: false });
   };
 
   const onClick = () => {
-    addTask(task);
-    setTask("");
+    if (task) {
+      addTask(task);
+      setTask(null);
+    }
   };
 
   return (
-    <div>
-      <Input value={task} onChange={onChange} type="text" name="task" placeholder="Input task title" />
-      <Button onClick={onClick} text="Add task" />
-    </div>
+    <Form layout="inline" size="small">
+      <Input value={task?.title} onChange={onChange} type="text" name="task" placeholder="Input task title" />
+      <Button icon={<PlusOutlined />} onClick={onClick} text="Add task" type="primary" />
+    </Form>
   );
 };
 
