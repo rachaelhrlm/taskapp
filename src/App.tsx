@@ -1,37 +1,9 @@
 import React, { FC } from "react";
-import AddTask from "./components/AddTask";
-import { TasksState } from "./state/task/taskReducer";
-import { useDispatch, useSelector } from "react-redux";
 import "./styles/main.scss";
-import { addTask, completeTask, deleteTask } from "./state/task/taskActions";
-import { TasksContainer } from "./components";
-import { Task } from "./state/types";
+import { Tasks } from "./pages";
 
 const App: FC = () => {
-  const tasks = useSelector<TasksState, TasksState["tasks"]>(state => state.tasks);
-  const dispatch = useDispatch();
-
-  const onAddTask = (tasks: Task) => {
-    dispatch(addTask(tasks));
-  };
-  const onCompleteTask = (tasks: Task) => {
-    dispatch(completeTask(tasks));
-  };
-  const onDeleteTask = (tasks: Task) => {
-    dispatch(deleteTask(tasks));
-  };
-
-  return (
-    <div>
-      <AddTask addTask={onAddTask} />
-      <div>
-        <hr />
-        <ul>
-          <TasksContainer tasks={tasks} completeTask={onCompleteTask} deleteTask={onDeleteTask} />
-        </ul>
-      </div>
-    </div>
-  );
+  return <Tasks />;
 };
 
 export default App;

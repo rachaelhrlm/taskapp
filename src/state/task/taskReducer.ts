@@ -39,6 +39,19 @@ export const taskReducer = (state: TasksState = initialState, action: Action): T
         ]
       };
     }
+    case TaskActionTypes.EDIT_TASK: {
+      return {
+        ...state,
+        tasks: [
+          ...state.tasks.map(task => {
+            if (task.id === payload.id) {
+              return { ...task, title: payload.title };
+            }
+            return task;
+          })
+        ]
+      };
+    }
     default:
       return state;
   }
