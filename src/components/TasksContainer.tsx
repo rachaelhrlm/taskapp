@@ -1,3 +1,4 @@
+import { List } from "antd";
 import React, { FC } from "react";
 import { Task } from "../state/types";
 import { ListItem } from "./";
@@ -5,15 +6,16 @@ import { ListItem } from "./";
 interface TasksContainerProps {
   tasks: Task[];
   completeTask: (task: Task) => void;
+  deleteTask: (task: Task) => void;
 }
 
-const TasksContainer: FC<TasksContainerProps> = ({ tasks, completeTask }: TasksContainerProps) => {
+const TasksContainer: FC<TasksContainerProps> = ({ tasks, completeTask, deleteTask }: TasksContainerProps) => {
   return (
-    <div>
+    <List>
       {tasks.map((task, index) => (
-        <ListItem key={task.title + index} task={task} completeTask={completeTask} />
+        <ListItem key={task.title + index} task={task} completeTask={completeTask} deleteTask={deleteTask} />
       ))}
-    </div>
+    </List>
   );
 };
 

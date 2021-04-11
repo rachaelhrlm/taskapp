@@ -3,7 +3,7 @@ import AddTask from "./components/AddTask";
 import { TasksState } from "./state/task/taskReducer";
 import { useDispatch, useSelector } from "react-redux";
 import "./styles/main.scss";
-import { addTask, completeTask } from "./state/task/taskActions";
+import { addTask, completeTask, deleteTask } from "./state/task/taskActions";
 import { TasksContainer } from "./components";
 import { Task } from "./state/types";
 
@@ -17,6 +17,9 @@ const App: FC = () => {
   const onCompleteTask = (tasks: Task) => {
     dispatch(completeTask(tasks));
   };
+  const onDeleteTask = (tasks: Task) => {
+    dispatch(deleteTask(tasks));
+  };
 
   return (
     <div>
@@ -24,7 +27,7 @@ const App: FC = () => {
       <div>
         <hr />
         <ul>
-          <TasksContainer tasks={tasks} completeTask={onCompleteTask} />
+          <TasksContainer tasks={tasks} completeTask={onCompleteTask} deleteTask={onDeleteTask} />
         </ul>
       </div>
     </div>

@@ -11,19 +11,30 @@ const initialState = {
 };
 
 export const taskReducer = (state: TasksState = initialState, action: Action): TasksState => {
+  const payload = action.payload;
   switch (action.type) {
     case TaskActionTypes.ADD_TASK: {
-      return { ...state, tasks: [...state.tasks, action.payload] };
+      return { ...state, tasks: [...state.tasks, payload] };
     }
     case TaskActionTypes.COMPLETE_TASK: {
       return {
         ...state,
         tasks: [
           ...state.tasks.map(task => {
-            if (task.id === action.payload.id) {
+            if (task.id === payload.id) {
               return { ...task, completed: !task.completed };
             }
             return task;
+          })
+        ]
+      };
+    }
+    case TaskActionTypes.DELETE_TASK: {
+      return {
+        ...state,
+        tasks: [
+          ...state.tasks.filter(task => {
+            return task.id !== payload.id;
           })
         ]
       };
