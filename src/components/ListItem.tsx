@@ -25,12 +25,20 @@ const ListItem: FC<ListItemProps> = ({ task, ...props }: ListItemProps) => {
   };
 
   return (
-    <List.Item className={classNames({ "c-listitem-completed": task.completed })}>
-      <Checkbox {...props} onClick={onComplete} checked={task.completed} />
-      {task.title}, {task.id}, {task.completed ? "true" : "false"}, {isEditing ? "true" : "false"}
-      <DeleteOutlined onClick={onDelete} />
-      <EditOutlined onClick={() => setIsEditing(!isEditing)} />
-      <TaskInput hidden={!isEditing} task={task} />
+    <List.Item className={classNames("c-listitem", { "c-listitem-completed": task.completed })}>
+      <span className="c-listitem-row">
+        <Checkbox className="c-checkbox" {...props} onClick={onComplete} checked={task.completed} />
+        <span className="c-listitem-description">
+          {task.title}, {task.id}, {task.completed ? "true" : "false"}, {isEditing ? "true" : "false"}
+        </span>
+        <span className="c-icons">
+          <DeleteOutlined onClick={onDelete} />
+          <EditOutlined onClick={() => setIsEditing(!isEditing)} />
+        </span>
+      </span>
+      <span className="c-listitem-row">
+        <TaskInput hidden={!isEditing} task={task} />
+      </span>
     </List.Item>
   );
 };

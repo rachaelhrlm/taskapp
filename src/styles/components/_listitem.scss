@@ -1,7 +1,35 @@
 .c-listitem {
-  border: 1px solid $lightGray;
-}
+  padding: ($padding * 3);
+  display: block;
 
+  .c-checkbox {
+    flex: 1;
+  }
+
+  .c-listitem-description {
+    flex: 11;
+  }
+
+  .c-listitem-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .c-icons {
+    flex: 1;
+    font-size: large;
+
+    > span {
+      margin: 0 $margin;
+      color: $black;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $primaryColor;
+      }
+    }
+  }
+}
 .c-listitem-completed {
   opacity: 0.4;
   background-color: $lightGray;

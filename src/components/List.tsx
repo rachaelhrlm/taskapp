@@ -10,6 +10,7 @@ interface ListProps {
 const List: FC<ListProps> = ({ tasks }: ListProps) => {
   return (
     <AntList
+      className="c-list"
       dataSource={tasks}
       locale={{ emptyText: <Empty description="No tasks." /> }}
       renderItem={(task, index) => <ListItem key={task.title + index} task={task} />}
