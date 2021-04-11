@@ -1,16 +1,16 @@
 import React, { ChangeEvent, FC, useState } from "react";
 import { Button, Input } from ".";
 import { PlusOutlined } from "@ant-design/icons";
-import { Form } from "antd";
+import { Form, InputProps } from "antd";
 import { Task } from "../state/types";
 import { useDispatch } from "react-redux";
 import { addTask, editTask } from "../state/task/taskActions";
-interface TaskInputProps {
+interface TaskInputProps extends InputProps {
   hidden?: boolean;
   task?: Task;
 }
 
-const TaskInput: FC<TaskInputProps> = ({ hidden, task }: TaskInputProps) => {
+const TaskInput: FC<TaskInputProps> = ({ hidden, task, ...props }: TaskInputProps) => {
   const [newTask, setNewTask] = useState<Task | null>(null);
 
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ const TaskInput: FC<TaskInputProps> = ({ hidden, task }: TaskInputProps) => {
     return null;
   }
   return (
-    <Form layout="inline" size="small">
+    <Form layout="inline" size="small" className={props.className}>
       <Input value={newTask?.title} onChange={onChange} type="text" name="textInput" placeholder="Input task title" />
       <Button icon={<PlusOutlined />} onClick={onClick} text={text} type="primary" />
     </Form>

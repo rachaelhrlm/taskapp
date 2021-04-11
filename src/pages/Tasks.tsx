@@ -14,7 +14,7 @@ const Tasks: FC = () => {
         <List tasks={tasks} />
       </Row>
       <Row className="c-row">
-        <TaskInput />
+        <TaskInput className="c-tasks-input" />
       </Row>
     </div>
   );

@@ -1,5 +1,5 @@
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
-import { Checkbox, CheckboxProps, List } from "antd";
+import { Checkbox, CheckboxProps, Divider, List } from "antd";
 import classNames from "classnames";
 import React, { FC } from "react";
 import { useState } from "react";
@@ -27,17 +27,20 @@ const ListItem: FC<ListItemProps> = ({ task, ...props }: ListItemProps) => {
   return (
     <List.Item className={classNames("c-listitem", { "c-listitem-completed": task.completed })}>
       <span className="c-listitem-row">
-        <Checkbox className="c-checkbox" {...props} onClick={onComplete} checked={task.completed} />
-        <span className="c-listitem-description">
-          {task.title}, {task.id}, {task.completed ? "true" : "false"}, {isEditing ? "true" : "false"}
+        <span className="c-checkbox">
+          <Checkbox onClick={onComplete} checked={task.completed} />
         </span>
+        <span className="c-listitem-description">{task.title}</span>
         <span className="c-icons">
-          <DeleteOutlined onClick={onDelete} />
           <EditOutlined onClick={() => setIsEditing(!isEditing)} />
+          <DeleteOutlined onClick={onDelete} />
         </span>
       </span>
-      <span className="c-listitem-row">
-        <TaskInput hidden={!isEditing} task={task} />
+      <span className={classNames({ "c-hidden": !isEditing })}>
+        <Divider />
+        <span className="c-listitem-input">
+          <TaskInput hidden={!isEditing} task={task} />
+        </span>
       </span>
     </List.Item>
   );

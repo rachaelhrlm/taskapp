@@ -1,4 +1,21 @@
 .c-tasks {
   background-color: $lightGray;
   padding: ($padding * 10) 0;
+  height: 100vh;
+
+  .c-tasks-input {
+    margin: ($margin * 5) 0;
+    padding: $padding;
+    display: flex;
+    justify-content: center;
+
+    form[class~="ant-form"] {
+      width: 100%;
+      justify-content: center;
+    }
+    input[class~="ant-input"] {
+      width: 30vw;
+      justify-content: center;
+    }
+  }
 }

@@ -1,26 +1,42 @@
 .c-listitem {
   padding: ($padding * 3);
   display: block;
+  font-size: large;
 
   .c-checkbox {
-    flex: 1;
+    margin-right: $margin;
   }
 
   .c-listitem-description {
-    flex: 11;
+    flex: 8;
+  }
+
+  .c-listitem-input {
+    display: flex;
+    justify-content: space-between;
+    form[class~="ant-form"] {
+      width: 100%;
+      justify-content: center;
+    }
+    input[class~="ant-input"] {
+      width: 30vw;
+      justify-content: center;
+    }
   }
 
   .c-listitem-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
   .c-icons {
-    flex: 1;
-    font-size: large;
+    flex: 3;
+    display: flex;
+    justify-content: flex-end;
 
     > span {
-      margin: 0 $margin;
+      margin-left: $margin;
       color: $black;
       transition: color 0.3s;
 
