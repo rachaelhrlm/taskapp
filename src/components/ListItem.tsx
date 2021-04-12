@@ -38,9 +38,7 @@ const ListItem: FC<ListItemProps> = ({ task, ...props }: ListItemProps) => {
       </span>
       <span className={classNames({ "c-hidden": !isEditing })}>
         <Divider />
-        <span className="c-listitem-input">
-          <TaskInput hidden={!isEditing} task={task} />
-        </span>
+        <TaskInput className="c-listitem-input" hidden={!isEditing} task={task} />
       </span>
     </List.Item>
   );
