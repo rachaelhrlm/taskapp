@@ -3,16 +3,16 @@ import { Checkbox, CheckboxProps, Divider, List } from "antd";
 import classNames from "classnames";
 import React, { FC } from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { TaskInput } from ".";
-import { completeTask, deleteTask } from "../state/task/taskActions";
+import { useDispatch } from "../state/hooks";
+import { completeTask, deleteTask } from "../state/task/taskSlice";
 import { Task } from "../state/types";
 
 interface ListItemProps extends CheckboxProps {
   task: Task;
 }
 
-const ListItem: FC<ListItemProps> = ({ task, ...props }: ListItemProps) => {
+const ListItem: FC<ListItemProps> = ({ task }: ListItemProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const dispatch = useDispatch();

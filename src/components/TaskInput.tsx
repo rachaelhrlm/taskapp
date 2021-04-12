@@ -3,8 +3,8 @@ import { Button, Input } from ".";
 import { PlusOutlined } from "@ant-design/icons";
 import { Form, InputProps } from "antd";
 import { Task } from "../state/types";
-import { useDispatch } from "react-redux";
-import { addTask, editTask } from "../state/task/taskActions";
+import { useDispatch } from "../state/hooks";
+import { createTask, updateTask } from "../state/task/taskSlice";
 interface TaskInputProps extends InputProps {
   hidden?: boolean;
   task?: Task;
@@ -16,9 +16,9 @@ const TaskInput: FC<TaskInputProps> = ({ hidden, task, ...props }: TaskInputProp
   const dispatch = useDispatch();
   const onSubmit = (newTask: Task) => {
     if (task) {
-      dispatch(editTask(newTask));
+      dispatch(updateTask(newTask));
     } else {
-      dispatch(addTask(newTask));
+      dispatch(createTask(newTask));
     }
   };
 

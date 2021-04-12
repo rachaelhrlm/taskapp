@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 import TaskInput from "../components/TaskInput";
-import { TasksState } from "../state/task/taskReducer";
 import { useSelector } from "react-redux";
 import { List } from "../components";
-import { Divider, Row } from "antd";
+import { Row } from "antd";
+import { RootState } from "../state/store";
 
 const Tasks: FC = () => {
-  const tasks = useSelector<TasksState, TasksState["tasks"]>(state => state.tasks);
+  const tasks = useSelector((state: RootState) => state.tasks);
 
   return (
     <div className="c-tasks">
