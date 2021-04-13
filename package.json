@@ -1,5 +1,5 @@
 {
-  "homepage": "https://rachaelhrlm.github.io/taskapp/",
+  "homepage": "http://rachaelhrlm.github.io/taskapp/",
   "name": "taskapp",
   "version": "0.1.0",
   "private": true,
@@ -33,7 +33,7 @@
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.{ts,tsx}",
     "lint": "eslint --fix src/**/*.{ts,tsx}",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
