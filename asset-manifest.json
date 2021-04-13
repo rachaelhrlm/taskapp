@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/taskapp/static/css/main.9f1d14f9.chunk.css",
+    "main.js": "/taskapp/static/js/main.a35a3a4c.chunk.js",
+    "main.js.map": "/taskapp/static/js/main.a35a3a4c.chunk.js.map",
+    "runtime-main.js": "/taskapp/static/js/runtime-main.473d4a13.js",
+    "runtime-main.js.map": "/taskapp/static/js/runtime-main.473d4a13.js.map",
+    "static/css/2.d29e3d57.chunk.css": "/taskapp/static/css/2.d29e3d57.chunk.css",
+    "static/js/2.4705e631.chunk.js": "/taskapp/static/js/2.4705e631.chunk.js",
+    "static/js/2.4705e631.chunk.js.map": "/taskapp/static/js/2.4705e631.chunk.js.map",
+    "static/js/3.024fd63f.chunk.js": "/taskapp/static/js/3.024fd63f.chunk.js",
+    "static/js/3.024fd63f.chunk.js.map": "/taskapp/static/js/3.024fd63f.chunk.js.map",
+    "index.html": "/taskapp/index.html",
+    "static/css/2.d29e3d57.chunk.css.map": "/taskapp/static/css/2.d29e3d57.chunk.css.map",
+    "static/css/main.9f1d14f9.chunk.css.map": "/taskapp/static/css/main.9f1d14f9.chunk.css.map",
+    "static/js/2.4705e631.chunk.js.LICENSE.txt": "/taskapp/static/js/2.4705e631.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.473d4a13.js",
+    "static/css/2.d29e3d57.chunk.css",
+    "static/js/2.4705e631.chunk.js",
+    "static/css/main.9f1d14f9.chunk.css",
+    "static/js/main.a35a3a4c.chunk.js"
+  ]
+}
